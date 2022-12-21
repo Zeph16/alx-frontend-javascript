@@ -6,7 +6,11 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     .then((values) => {
       const ret = [];
       for (const item of values) {
-        ret.push({ status: item.status, value: item.value });
+        if (item.status === 'fulfilled') {
+          ret.push({ status: item.status, value: item.value });
+        } else {
+          ret.push({ status: item.status, value: `Error: ${item.reason.message}` });
+        }
       }
       return ret;
     });
