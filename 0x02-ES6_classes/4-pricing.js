@@ -2,7 +2,6 @@ import Currency from './3-currency';
 
 export default class Pricing {
   contructor(amount, currency) {
-    console.log('Pricing constructor');
     if (typeof amount !== 'number') {
       throw new TypeError('Amount must be a number');
     } else if (!(currency instanceof Currency)) {
